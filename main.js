@@ -18,5 +18,27 @@ function getUser(id) {
     .catch((error) => console.error(error))
 }
 
+function addUser(newUser){
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+    .then(response => response.json())
+    .then(data => alertApi.textContent = data)
+    .catch(error => console.error(error))
+    
+}
+
+const newUser= {
+    name: "Jefferson Brandão",
+    avatar: "https://avatars.githubusercontent.com/u/50780211?v=4",
+    city: "Cajamar-SP"
+}
+
+
+//addUser(newUser)
 getUsers()
-getUser(1)
+getUser(2)
